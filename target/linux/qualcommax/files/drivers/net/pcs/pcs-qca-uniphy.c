@@ -488,7 +488,8 @@ static int qca_uniphy_pcs_config_mode(struct phylink_pcs *pcs,
 		break;
 	case PHY_INTERFACE_MODE_SGMII:
 		misc2_phy_mode = UNIPHY_MISC2_SGMII;
-		mode_ctrl = UNIPHY_SGMII_MODE;
+		//mode_ctrl = UNIPHY_SGMII_MODE;
+		mode_ctrl = 0; // Needs to be 0 to work on NWA110AX / AR8033, might need to be UNIPHY_SGMII_MODE on others?
 		mode_ctrl |= FIELD_PREP(UNIPHY_CH0_MODE_CTRL_25M, UNIPHY_CH0_MODE_MAC);
 		mode_ctrl |= UNIPHY_AUTONEG_MODE_ATH;
 		break;
